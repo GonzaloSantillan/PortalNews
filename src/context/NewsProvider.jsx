@@ -4,7 +4,7 @@ import { createContext, useEffect, useState } from "react";
 const NewsContext = createContext();
 
 export const NewsProvider = ({children}) =>{
-    const [category, setCategory] = useState('general');
+    const [category, setCategory] = useState('top');
     const [news, setNews] = useState([]);
     const [page,setPage] = useState(1);
     const [totalNews, setTotalNews] = useState(0);
@@ -13,29 +13,28 @@ export const NewsProvider = ({children}) =>{
         const getApi= async()=>{
             const url=`${import.meta.env.VITE_API_URL}${category}${import.meta.env.VITE_API_KEY}`;
             const {data}= await axios(url);
-            setNews(data.articles);
+            //console.log(data);
+            setNews(data.results);
             setTotalNews(data.totalResults);
-            setPage(1)
+            setPage(data.nextPage);
         };
         getApi();
     },[category]);
 
-    useEffect(()=>{
-        const getApi= async()=>{
-            const url=`${import.meta.env.VITE_API_URL}${category}&page=${page}${import.meta.env.VITE_API_KEY}`;
-            const {data}= await axios(url);
-            setNews(data.articles);
-            setTotalNews(data.totalResults);
-        };
-        getApi();
-    },[page]);
+    const getApi= async()=>{
+        const url=`${import.meta.env.VITE_API_URL}${category}&page=${page}${import.meta.env.VITE_API_KEY}`;
+        const {data}= await axios(url);
+        setNews(data.results);
+        setTotalNews(data.totalResults);
+        setPage(data.nextPage);
+    };
 
     const changeCategoryHandler = e =>{
         setCategory(e.target.value);
     };
 
     const paginationHandler =(e,valor)=>{
-        setPage(valor);
+        getApi();
     };
 
     return(

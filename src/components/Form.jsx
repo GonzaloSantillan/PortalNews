@@ -2,13 +2,17 @@ import  {FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 import useNews from '../hooks/useNews';
 
 const CATEGORIAS = [
-    { value: 'general', label: 'General'},
+    { value: 'top', label: 'Top'},
     { value: 'business', label: 'Business'},
     { value: 'entertainment', label: 'Entertainment'},
+    { value: 'food', label: 'Food'},
     { value: 'health', label: 'Health'},
+    { value: 'politics', label: 'Politics'},
     { value: 'science', label: 'Science'},
     { value: 'sports', label: 'Sports'},
     { value: 'technology', label: 'Technology'},
+    { value: 'tourism', label: 'Tourism'},
+    { value: 'world', label: 'World'},
 ]
 
 const Form = () => {

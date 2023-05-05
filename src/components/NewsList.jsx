@@ -21,11 +21,11 @@ const NewsList = () => {
         alignItems={"center"}
         sx={{ marginY: 5 }}
       >
-        <Pagination count={Math.ceil(totalNews/20)} color="primary" onChange={paginationHandler} page={page}/>
+        <Pagination count={Math.ceil(totalNews/20)} color="primary" onChange={paginationHandler}/>
       </Stack>
       <Grid container spacing={2}>
         {news.map((it) => (
-          <News news={it} key={it.url} />
+          <News news={it} key={it.link} />
         ))}
       </Grid>
       <Stack
@@ -35,7 +35,7 @@ const NewsList = () => {
         alignItems={"center"}
         sx={{ marginY: 5 }}
       >
-        <Pagination count={Math.ceil(totalNews/20)} color="primary" onChange={paginationHandler} page={page}/>
+        <Pagination count={Math.ceil(totalNews/10)} color="primary" onChange={paginationHandler} />
       </Stack>
     </>
   );
