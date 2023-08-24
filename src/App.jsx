@@ -13,7 +13,7 @@ function App() {
           </Typography>
         </header>
         <Grid container direction="row" justifyContent="center" alignItems={"center"}>
-          <Grid item md={6} xs={12} lg={4}>
+          <Grid item md={4} xs={12} lg={6}>
             <Form/>
           </Grid>
         </Grid>
