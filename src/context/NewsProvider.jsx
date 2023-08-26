@@ -12,11 +12,11 @@ export const NewsProvider = ({ children }) => {
   const [status, setStatus] = useState("Loading...");
 
   useEffect(() => {
-    return () => {
+   
       console.log("Ejecucion effect por categoria");
       pages.set(1, undefined);
       getApi();
-    };
+
   }, [category]);
 
   const getApi = async() => {
