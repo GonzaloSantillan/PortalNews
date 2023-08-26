@@ -20,7 +20,7 @@ export const NewsProvider = ({ children }) => {
   }, [category]);
 
   const getApi = async() => {
-    const url = `${import.meta.env.VITE_API_URL}${category}${pages.get(nextPage) !== undefined ? "&page=" + pages.get(nextPage) : ""}${import.meta.env.VITE_API_KEY}`;
+    const url = `${import.meta.env.VITE_API_URL}${category}${pages.get(nextPage) && "&page=" + pages.get(nextPage)}${import.meta.env.VITE_API_KEY}`;
     await axios(url).then((response) => {
       setNews(response.data.results);
       setTotalNews(response.data.totalResults);
