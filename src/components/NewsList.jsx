@@ -15,7 +15,7 @@ const NewsList = () => {
             {`There are ${totalNews} results.`} 
           </Typography>
           <Stack spacing={2} direction={"row"} justifyContent={"center"} alignItems={"center"} sx={{ marginY: 5 }}>
-            {nextPage <=2 ? <h4>...</h4>:<h4 style={{cursor:"pointer"}} onClick={prevPageHandler}>{`<<<PREV`}</h4>}
+             {nextPage <= 2 ? <h4>...</h4>:<h4 style={{cursor:"pointer"}} onClick={prevPageHandler}>{`<<<PREV`}</h4>}
             <h4 style={{cursor:"pointer"}} onClick={nextPageHandler}>{`NEXT>>>`}</h4>
           </Stack>
           <Grid container spacing={2}>
@@ -24,7 +24,7 @@ const NewsList = () => {
             ))}
           </Grid>
           <Stack spacing={2} direction={"row"} justifyContent={"center"} alignItems={"center"} sx={{ marginY: 5 }}>
-            {nextPage <= 2 ? <h4>...</h4>:<h4 style={{cursor:"pointer"}} onClick={prevPageHandler}>{`<<<PREV`}</h4>}
+             {nextPage <= 2 ? <h4>...</h4>:<h4 style={{cursor:"pointer"}} onClick={prevPageHandler}>{`<<<PREV`}</h4>}
             <h4 style={{cursor:"pointer"}} onClick={nextPageHandler}>{`NEXT>>>`}</h4>
           </Stack>
         </> : 
