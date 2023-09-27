@@ -12,15 +12,15 @@ export const NewsProvider = ({ children }) => {
   const [status, setStatus] = useState("Loading...");
 
   useEffect(() => {
-    return () => {
+    //return () => {
       console.log("Ejecucion effect por categoria");
       pages.set(1, undefined);
       getApi();
-    };
+    //};
   }, [category]);
 
   const getApi = async() => {
-    const url = `${import.meta.env.VITE_API_URL}${category}${pages.get(nextPage) !== undefined ? "&page=" + pages.get(nextPage) : ""}${import.meta.env.VITE_API_KEY}`;
+    const url = `${import.meta.env.VITE_API_URL}${category}${pages.get(nextPage) ? "&page=" + pages.get(nextPage) : ''}${import.meta.env.VITE_API_KEY}`;
     await axios(url).then((response) => {
       setNews(response.data.results);
       setTotalNews(response.data.totalResults);
